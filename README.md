@@ -1,12 +1,75 @@
-# React + Vite
+# Full CRUD React Application with API Integration and Local Storage/Redux
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A project designed to demonstrate full CRUD operations in a React.js application. The app integrates with an external API, supports form handling, local storage (or Redux), and includes optimization using various React hooks.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Task Overview
 
-## Expanding the ESLint configuration
+Create a React.js application that performs full CRUD operations (Create, Read, Update, Delete) on a list of users. The app should fetch initial data from an external API and allow users to perform CRUD actions on this data. Local changes should persist in the browser’s local storage or Redux.
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+---
+
+## Requirements
+
+### 1. Initial Data Fetch
+- Use Axios to fetch a list of users from an external API (e.g., https://jsonplaceholder.typicode.com/users) on component mount.
+- Store the fetched data using `useState`.
+- Display data in a table with columns: **Name, Email, Phone, Actions (Edit/Delete)**.
+
+### 2. Local Storage / Redux Integration
+- After fetching data, save it in local storage (or Redux) using `useEffect`.
+- On reload, load data from local storage if available, otherwise fetch from the API.
+- Use `useState` and `useEffect` to manage and sync data.
+
+### 3. Add New User
+- Provide a form to add a new user with fields: **Name, Email, Phone**.
+- Use `useReducer` to manage the form state.
+- Add the new user to the list and update local storage.
+- Clear form inputs after submission.
+
+### 4. Edit User
+- Implement an **Edit** button for each user row.
+- Populate form with existing user data on edit click.
+- Toggle between add and edit modes using `useState`.
+- Update data in the list and local storage after editing.
+
+### 5. Delete User
+- Implement a **Delete** button for each user.
+- Remove the user from the list and update local storage.
+- Optimize rendering using `useMemo`.
+
+### 6. Search Functionality
+- Add a search bar to filter users by name.
+- Use `useRef` to optimize the input field.
+- Use `useCallback` to memoize the search function.
+
+### 7. Error Handling
+- Display meaningful messages for API fetch failures.
+- Use `useState` for managing error state and render conditionally.
+
+### 8. Custom Hook (Bonus)
+- Create a reusable `useLocalStorage` hook for interacting with local storage.
+
+---
+
+## Bonus Features
+- Follow best practices in React development.
+- Implement form validation (e.g., required fields for Name and Email).
+- Optimistic UI updates for editing/deleting.
+- Redux implementation instead of local storage.
+
+---
+
+## Skills Demonstrated
+- React Hooks (`useState`, `useEffect`, `useReducer`, `useRef`, `useMemo`, `useCallback`)
+- Axios and API integration
+- CRUD logic implementation
+- Local Storage / Redux state persistence
+- Form state management and validation
+- Custom Hooks
+- Performance optimization
+
+---
+
+> This project showcases a wide range of React.js capabilities and is ideal for demonstrating intermediate to advanced React proficiency.
