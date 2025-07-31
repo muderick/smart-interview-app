@@ -34,7 +34,7 @@ const UsersTable = ({searchResults, showConfirm, handleEditClick, handleDelete, 
           </thead>
 
           <tbody className="bg-white divide-y divide-gray-200">
-            {searchResults.map((user) => (
+            {searchResults?.map((user) => (
               <tr key={user.id}>
                 <td className="text-start px-6 py-4 whitespace-nowrap text-sm text-gray-800">
                   {user.name}

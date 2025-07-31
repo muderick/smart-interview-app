@@ -5,17 +5,10 @@ import toast from "react-hot-toast";
 import SearchBar from "./SearchBar";
 import UsersTable from "./UsersTable";
 import { formReducer, initialForm } from "../reducer/FormReducer";
+import { useLocalStorage } from "../hooks/useLocalStorage";
 
-const Test = () => {
-  const [users, setUsers] = useState(() => {
-    try {
-      const savedUsers = localStorage.getItem("users");
-      return savedUsers ? JSON.parse(savedUsers) : [];
-    } catch (error) {
-      console.error("Error loading users.", error);
-      return [];
-    }
-  });
+const Main = () => {
+  const [users, setUsers] = useLocalStorage("user", []);
   const [form, dispatch] = useReducer(formReducer, initialForm);
   const [isEditMode, setIsEditMode] = useState(false);
   const [editingId, setEditingId] = useState(null);
@@ -53,16 +46,9 @@ const Test = () => {
     }
   });
 
-  useEffect(() => {
-    try {
-      localStorage.setItem("users", JSON.stringify(users));
-    } catch (error) {
-      console.error("Error saving users to localStorage. ", error);
-    }
-  }, [users]);
 
   useEffect(() => {
-    if (users.length === 0) {
+    if (users?.length === 0) {
       const getUsers = async () => {
         try {
           const res = await fetchUsers();
@@ -249,4 +235,4 @@ const Test = () => {
   );
 };
 
-export default Test;
+export default Main;
