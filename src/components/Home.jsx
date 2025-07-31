@@ -5,7 +5,7 @@ import toast from "react-hot-toast";
 import SearchBar from "./SearchBar";
 import UsersTable from "./UsersTable";
 import { useLocalStorage } from "../hooks/useLocalStorage";
-import { formReducer, initialForm } from "../reducer/FormReducer";
+import { formReducer, initialForm } from "../reducer/formReducerHook";
 
 const Home = () => {
   const [users, setUsers] = useLocalStorage("user", []);
