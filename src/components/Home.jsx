@@ -4,10 +4,10 @@ import { createUser, deleteUser, fetchUsers, updateUser } from "../../api";
 import toast from "react-hot-toast";
 import SearchBar from "./SearchBar";
 import UsersTable from "./UsersTable";
-import { formReducer, initialForm } from "../reducer/FormReducer";
 import { useLocalStorage } from "../hooks/useLocalStorage";
+import { formReducer, initialForm } from "../reducer/FormReducer";
 
-const Main = () => {
+const Home = () => {
   const [users, setUsers] = useLocalStorage("user", []);
   const [form, dispatch] = useReducer(formReducer, initialForm);
   const [isEditMode, setIsEditMode] = useState(false);
@@ -235,4 +235,4 @@ const Main = () => {
   );
 };
 
-export default Main;
+export default Home;
